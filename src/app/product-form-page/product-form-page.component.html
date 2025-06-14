@@ -1,0 +1,55 @@
+<div class="container" [formGroup]="form">
+  <div class="form-item">
+    <div class="form-column">
+      <label>名稱</label>
+      <input type="text" formControlName="name" />
+    </div>
+    @if (name.hasError('required')) {
+    <div class="error-message">請輸入產品名稱</div>
+    }
+  </div>
+  <div class="form-item">
+    <div class="form-column">
+      <label>作者</label>
+      <button type="button" (click)="onAddAuthor()">新增</button>
+    </div>
+  </div>
+  <ng-container formArrayName="authors">
+    @for (control of authors.controls; track $index) {
+    <div class="form-item">
+      <div class="form-column">
+        <div>
+          <button type="button" (click)="authors.removeAt($index)">刪除</button>
+        </div>
+        <input type="text" [formControl]="control" />
+      </div>
+      @if (control.hasError('required')) {
+      <div class="error-message">請輸入作者</div>
+      }
+    </div>
+    }
+  </ng-container>
+  <div class="form-item">
+    <div class="form-column">
+      <label>出版社</label>
+      <input type="text" formControlName="company" />
+    </div>
+    @if (company.hasError('required')) {
+    <div class="error-message">請輸入出版社</div>
+    }
+  </div>
+  <div class="form-item">
+    <div class="form-column">
+      <label>單價</label>
+      <input type="text" formControlName="price" />
+    </div>
+    @if (price.hasError('required')) {
+    <div class="error-message">請輸入單價</div>
+    }
+  </div>
+  <div class="form-action">
+    <button type="button" (click)="onCancel()">取消</button>
+    <button type="button" class="save" [disabled]="form.invalid" (click)="onSave()">儲存</button>
+  </div>
+  <pre>{{ form.value | json }}</pre>
+</div>

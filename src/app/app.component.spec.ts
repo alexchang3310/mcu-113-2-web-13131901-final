@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'mcu-113-2-web-13131901-final' title`, () => {
+  it(`should have the 'shopping-cart' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('mcu-113-2-web-13131901-final');
+    expect(app.title).toEqual('shopping-cart');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, mcu-113-2-web-13131901-final');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, shopping-cart');
   });
 });

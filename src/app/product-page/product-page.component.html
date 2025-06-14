@@ -1,0 +1,11 @@
+<div class="toolbar">
+  <button type="button" (click)="onAdd()">新增</button>
+  <input type="text" placeholder="產品名稱" [formControl]="searchControl" />
+</div>
+<app-product-card-list
+  [products]="products()"
+  (view)="onView($event)"
+  (edit)="onEdit($event)"
+  (remove)="onRemove($event)"
+></app-product-card-list>
+<app-pagination [(pageIndex)]="pageIndex" [pageSize]="pageSize()" [totalCount]="totalCount()"></app-pagination>

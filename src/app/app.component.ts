@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { Product } from './models/product';
+import { HeaderComponent } from './header/header.component';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'mcu-113-2-web-13131901-final';
-}
+export class AppComponent {}
