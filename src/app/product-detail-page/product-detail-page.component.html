@@ -18,12 +18,12 @@
   <div>
     <strong>價格</strong>
     <span>{{ product().price | currency : '$' : 'symbol' : '4.0' }}</span>
+    <strong class="cheap"> 特價</strong>
   </div>
   <div class="button">
     <button type="button" (click)="onBack()">返回</button>
     <span>
-      <button type="button" class="edit" (click)="onEdit()">編輯</button>
-      <button type="button" class="remove" (click)="onRemove()">刪除</button>
+      <button type="button" class="edit" (click)="onEdit()">加入購物車</button>
     </span>
   </div>
 </section>

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="form-section">
+      <h3>基本資料</h3>
+      <form>
+        <label>姓名</label>
+        <input type="text" [(ngModel)]="user.name" name="name" required />
+        <div class="error" *ngIf="!user.name">請輸入姓名</div>
+  
+        <label>地址</label>
+        <input type="text" [(ngModel)]="user.address" name="address" required />
+        <div class="error" *ngIf="!user.address">請輸入地址</div>
+  
+        <label>電話</label>
+        <input type="text" [(ngModel)]="user.phone" name="phone" required />
+        <div class="error" *ngIf="!user.phone">請輸入電話</div>
+      </form>
+    </div>
+  
+    <div class="cart-section">
+      <h3>購買項目</h3>
+         <table>
+            
+        <tr *ngFor="let item of cartItems; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>
+        <input type="number" [(ngModel)]="item.quantity" (ngModelChange)="updateTotal()" min="1"/>
+       </td>
+        <td>{{ item.price * item.quantity | currency:'TWD' }}</td>
+        <td><button (click)="removeItem(i)">刪除</button></td>
+     </tr>
+   </table>
+    <button (click)="submitOrder()">送出訂單 ({{ totalPrice | currency:'TWD' }})</button>
+   </div> 
+  </div>

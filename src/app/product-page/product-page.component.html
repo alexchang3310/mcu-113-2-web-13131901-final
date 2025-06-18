@@ -1,6 +1,6 @@
 <div class="toolbar">
-  <button type="button" (click)="onAdd()">新增</button>
-  <input type="text" placeholder="產品名稱" [formControl]="searchControl" />
+  <input type="text" placeholder="產品名稱查詢" [formControl]="searchControl" />
+  <button type="button" (click)="onAdd()">查詢</button>
 </div>
 <app-product-card-list
   [products]="products()"
